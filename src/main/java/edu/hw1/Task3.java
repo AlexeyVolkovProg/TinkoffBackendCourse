@@ -1,6 +1,7 @@
 package edu.hw1;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 
 /**
  * Напишите функцию, которая возвращает true,
@@ -21,25 +22,16 @@ public class Task3 {
     }
 
     public static Boolean isNestable(int[] array1, int[] array2) {
-        final String WARNINGARRAY1 = "array1 is empty";
-        final String WARNINGARRAY2 = "array2 is empty";
-        int max1 = Arrays.stream(array1)
-            .max()
-            .orElseThrow(() -> new IllegalArgumentException(WARNINGARRAY1));
+        IntSummaryStatistics stats1 = Arrays.stream(array1)
+            .summaryStatistics();
+        IntSummaryStatistics stats2 = Arrays.stream(array2)
+            .summaryStatistics();
 
-        int max2 = Arrays.stream(array2)
-            .max()
-            .orElseThrow(() -> new IllegalArgumentException(WARNINGARRAY2));
+        if (stats1.getCount() == 0 || stats2.getCount() == 0) {
+            throw new IllegalArgumentException("Input array is empty");
+        }
 
-        int min1 = Arrays.stream(array1)
-            .min()
-            .orElseThrow(() -> new IllegalArgumentException(WARNINGARRAY1));
-
-        int min2 = Arrays.stream(array2)
-            .min()
-            .orElseThrow(() -> new IllegalArgumentException(WARNINGARRAY2));
-
-        return (min1 > min2) && (max2 > max1);
-
+        return (stats1.getMin() > stats2.getMin()) && (stats1.getMax() < stats2.getMax());
     }
+
 }
