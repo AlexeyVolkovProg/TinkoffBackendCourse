@@ -13,8 +13,8 @@ public class Session {
     final String startGameText = "You have started a new game session!(so far, 5 or 6 words are available)";
     final String earlyFinal = "If you want to finish the game ahead of time, press cntrl+d";
 
-    int lengthSearchWord;
-    final int maxAttempts = 5;
+    private int lengthSearchWord;
+    private final int maxAttempts = 5;
     Scanner scanner = new Scanner(System.in);
 
     public static Logger logger = (Logger) LogManager.getLogger(Session.class);

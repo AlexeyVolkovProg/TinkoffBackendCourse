@@ -5,8 +5,8 @@ import java.util.Map;
 import static edu.project1.Session.logger;
 
 public class StringManager {
-    public static Map<Character, Integer> charCountMap;
-    public static String processedString;
+    private static Map<Character, Integer> charCountMap;
+    private static String processedString;
 
     private StringManager() {
     }
@@ -74,6 +74,18 @@ public class StringManager {
 
     public static void setProcessedString(String processedString) {
         StringManager.processedString = processedString;
+    }
+
+    public static Map<Character, Integer> getCharCountMap() {
+        return charCountMap;
+    }
+
+    public static void setCharCountMap(Map<Character, Integer> charCountMap) {
+        StringManager.charCountMap = charCountMap;
+    }
+
+    public static String getProcessedString() {
+        return processedString;
     }
 }
 
