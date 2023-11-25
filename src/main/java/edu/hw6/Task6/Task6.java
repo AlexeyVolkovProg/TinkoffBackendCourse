@@ -55,7 +55,7 @@ public class Task6 {
 
     public static List<String> checkTcpPorts(Integer min, Integer max) {
         List<String> ports = new ArrayList<>();
-        String string = "\"TCP:\"";
+        String string = "TCP:";
         for (int port = min; port <= max; port++) {
             try {
                 ServerSocket serverSocket = new ServerSocket(port);
@@ -72,7 +72,7 @@ public class Task6 {
 
     public static List<String> checkUdpPorts(Integer min, Integer max) {
         List<String> ports = new ArrayList<>();
-        String string = "\"UDP:\"";
+        String string = "UDP:";
         for (int port = min; port <= max; port++) {
             try {
                 DatagramSocket datagramSocket = new DatagramSocket(port);
