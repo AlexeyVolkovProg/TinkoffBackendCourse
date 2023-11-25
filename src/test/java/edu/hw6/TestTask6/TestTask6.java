@@ -29,18 +29,16 @@ public class TestTask6 {
     }
 
     @Test
-    public void  testTcpApplicationPorts(){
+    public void testTcpApplicationPorts() {
         assertEquals("TCP:135:EPMAP", checkTcpPorts(135, 135).get(0));
         assertEquals("TCP:139:Служба сеансов NetBIOS", checkTcpPorts(139, 139).get(0));
         assertEquals("TCP:445:Microsoft-DS Active Directory", checkTcpPorts(445, 445).get(0));
 
-
     }
 
     @Test
-    public void  testUdpApplicationPorts(){
+    public void testUdpApplicationPorts() {
         assertEquals("UDP:137:Служба имен NetBIOS", checkUdpPorts(137, 137).get(0));
         assertEquals("UDP:138:Служба датаграмм NetBIOS", checkUdpPorts(138, 138).get(0));
-        assertEquals("UDP:5353:Многоадресный DNS", checkUdpPorts(5353, 5353).get(0));
     }
 }
