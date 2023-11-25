@@ -25,7 +25,7 @@ public class TestAbstractFilter {
         List<String> expectedFileNames = List.of("img.png");
         List<String> actualFileNames = new ArrayList<>();
         try (DirectoryStream<Path> entries = Files.newDirectoryStream(
-            Path.of("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\test\\java\\edu\\hw6\\TestTask3\\data"), filter)) {
+            Path.of("src\\test\\java\\edu\\hw6\\TestTask3\\data"), filter)) {
             entries.forEach(e -> actualFileNames.add(e.getFileName().toString()));
         } catch (IOException ignored) {
         }

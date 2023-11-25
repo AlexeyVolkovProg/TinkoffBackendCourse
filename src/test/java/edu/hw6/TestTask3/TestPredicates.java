@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPredicates {
-    private static final Path TEST_DATA_PATH = Path.of("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\test\\java\\edu\\hw6\\TestTask3\\data");
+    private static final Path TEST_DATA_PATH = Path.of("src\\test\\java\\edu\\hw6\\TestTask3\\data");
 
     @Test
     public void assertThatLargerThanWorksRight() {

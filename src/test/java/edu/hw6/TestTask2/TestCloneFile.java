@@ -15,13 +15,13 @@ public class TestCloneFile {
     private static Path parentPath;
     @BeforeAll
     public static void setUp() {
-        parentPath = Path.of("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\test\\java\\edu\\hw6\\TestTask2\\test.txt");
+        parentPath = Path.of("src\\test\\java\\edu\\hw6\\TestTask2\\test.txt");
     }
 
     @AfterEach
     public void afterEach() {
         List<String> postfixes = List.of("", " (2)");
-        postfixes.forEach(postfix -> parentPath.resolve("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\test\\java\\edu\\hw6\\TestTask2\\test — копия" + postfix + ".txt").toFile().delete());
+        postfixes.forEach(postfix -> parentPath.resolve("src\\test\\java\\edu\\hw6\\TestTask2\\test — копия" + postfix + ".txt").toFile().delete());
     }
     @Test
     public void testCloneFile() throws Exception {

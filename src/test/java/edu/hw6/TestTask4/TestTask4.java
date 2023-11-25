@@ -18,7 +18,7 @@ public class TestTask4 {
 
     @BeforeAll
     public static void setUp() {
-        outputFilePath = Path.of("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\test\\java\\edu\\hw6\\TestTask4\\output.txt");
+        outputFilePath = Path.of("src\\test\\java\\edu\\hw6\\TestTask4\\output.txt");
     }
 
     @AfterAll

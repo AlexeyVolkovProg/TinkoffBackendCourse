@@ -15,7 +15,7 @@ public class TestTask1 {
 
     @AfterEach
     public void afterEach() {
-        String filePath = "C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\main\\java\\edu\\hw6\\file2.txt";
+        String filePath = "src\\main\\java\\edu\\hw6\\file2.txt";
         File file = new File(filePath);
         if (file.delete()) {
             System.out.println("Файл успешно удален.");
@@ -26,8 +26,8 @@ public class TestTask1 {
 
     @Test
     public void testReadFromFile() throws IOException {
-        DiskManager diskManager = new DiskManager("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\main\\java\\edu\\hw6\\file2.txt");
-        assertTrue(diskManager.checkThePath(Paths.get("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\main\\java\\edu\\hw6\\file2.txt")));
+        DiskManager diskManager = new DiskManager("src\\main\\java\\edu\\hw6\\file2.txt");
+        assertTrue(diskManager.checkThePath(Paths.get("src\\main\\java\\edu\\hw6\\file2.txt")));
         diskManager.put("ключ1", "значение1");
         diskManager.put("ключ2", "значение2");
         diskManager.put("ключ3", "значение3");
@@ -41,7 +41,7 @@ public class TestTask1 {
 
     @Test
     public void testPutGet() throws IOException {
-        DiskManager diskManager = new DiskManager("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse\\src\\main\\java\\edu\\hw6\\file2.txt");
+        DiskManager diskManager = new DiskManager("src\\main\\java\\edu\\hw6\\file2.txt");
         diskManager.put("ключ1", "значение1");
         diskManager.put("ключ2", "значение2");
         diskManager.put("ключ3", "значение3");
@@ -52,7 +52,7 @@ public class TestTask1 {
 
     @Test
     public void testIncorrectPath() throws IOException {
-        DiskManager diskManager = new DiskManager("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse1\\src\\main\\java\\edu\\hw6\\file2.txt");
-        assertFalse(diskManager.checkThePath(Paths.get("C:\\Users\\AlexV\\Desktop\\TinkoffBackendCourse1\\src\\main\\java\\edu\\hw6\\file2.txt")));
+        DiskManager diskManager = new DiskManager("src\\main\\java1\\edu\\hw6\\file2.txt");
+        assertFalse(diskManager.checkThePath(Paths.get("src\\main\\java1\\edu\\hw6\\file2.txt")));
     }
 }
