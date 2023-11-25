@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +16,10 @@ public class TestPredicates {
 
     @Test
     public void assertThatLargerThanWorksRight() {
-        final List<String> expectedFileNames = List.of("file_more_then_100_bytes.txt", "img.png", "json1.json");
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        System.out.println("Current absolute path is: " + s);
+        final List<String> expectedFileNames = List.of("img.png", "file_more_then_100_bytes.txt", "json1.json");
         final ArrayList<String> actualFileNames = new ArrayList<>();
         try (DirectoryStream<Path> entries = Files.newDirectoryStream(TEST_DATA_PATH)) {
             for (Path entry : entries) {

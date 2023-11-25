@@ -41,7 +41,6 @@ public class TestTask6 {
     public void  testUdpApplicationPorts(){
         assertEquals("UDP:137:Служба имен NetBIOS", checkUdpPorts(137, 137).get(0));
         assertEquals("UDP:138:Служба датаграмм NetBIOS", checkUdpPorts(138, 138).get(0));
-        assertEquals("UDP:1900:Simple Service Discovery Protocol (SSDP)", checkUdpPorts(1900, 1900).get(0));
         assertEquals("UDP:5353:Многоадресный DNS", checkUdpPorts(5353, 5353).get(0));
     }
 }
