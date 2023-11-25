@@ -10,7 +10,6 @@ public class TestTask8 {
         assertTrue(Task8Bonus.task81("1"));
         assertTrue(Task8Bonus.task81("010"));
         assertTrue(Task8Bonus.task81("1010101"));
-
         assertTrue(Task8Bonus.task81("0"));
         assertFalse(Task8Bonus.task81("00"));
         assertFalse(Task8Bonus.task81("1010"));
