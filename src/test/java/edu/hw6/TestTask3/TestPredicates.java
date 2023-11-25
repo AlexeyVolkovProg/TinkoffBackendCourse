@@ -1,6 +1,7 @@
 package edu.hw6.TestTask3;
 
 import edu.hw6.Task3.Predicates;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -29,7 +30,7 @@ public class TestPredicates {
             }
         } catch (IOException ignored) {
         }
-        assertEquals(expectedFileNames, actualFileNames);
+        Assertions.assertThat(actualFileNames).containsExactlyInAnyOrderElementsOf(expectedFileNames);
     }
 
     @Test
@@ -45,7 +46,8 @@ public class TestPredicates {
             }
         } catch (IOException ignored) {
         }
-        assertEquals(expectedFileNames, actualFileNames);
+        Assertions.assertThat(actualFileNames).containsExactlyInAnyOrderElementsOf(expectedFileNames);
+
     }
 
     @Test
@@ -60,7 +62,7 @@ public class TestPredicates {
             }
         } catch (IOException ignored) {
         }
-        assertEquals(expectedFileNames, actualFileNames);
+        Assertions.assertThat(actualFileNames).containsExactlyInAnyOrderElementsOf(expectedFileNames);
     }
 
     @Test
@@ -76,6 +78,6 @@ public class TestPredicates {
             }
         } catch (IOException ignored) {
         }
-        assertEquals(expectedFileNames, actualFileNames);
+        Assertions.assertThat(actualFileNames).containsExactlyInAnyOrderElementsOf(expectedFileNames);
     }
 }
