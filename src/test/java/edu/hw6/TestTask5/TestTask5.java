@@ -3,7 +3,6 @@ package edu.hw6.TestTask5;
 import edu.hw6.Task5.HackerNews;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TestTask5 {
     @Test

@@ -3,8 +3,10 @@ package edu.hw6.TestTask1;
 import edu.hw6.Task1.DiskManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import java.awt.SystemTray;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,8 +17,9 @@ public class TestTask1 {
 
     @AfterEach
     public void afterEach() {
-        String filePath = "src\\main\\java\\edu\\hw6\\file2.txt";
-        File file = new File(filePath);
+//        String filePath = "src\\main\\java\\edu\\hw6\\file2.txt";
+        Path path = Path.of("src", "main", "java", "edu", "hw6", "file2.txt");
+        File file = new File(path.toUri());
         if (file.delete()) {
             System.out.println("Файл успешно удален.");
         } else {
@@ -26,13 +29,13 @@ public class TestTask1 {
 
     @Test
     public void testReadFromFile() throws IOException {
-        DiskManager diskManager = new DiskManager("src\\main\\java\\edu\\hw6\\file2.txt");
-        assertTrue(diskManager.checkThePath(Paths.get("src\\main\\java\\edu\\hw6\\file2.txt")));
+        Path path =  Path.of("src", "main", "java", "edu", "hw6", "file2.txt");
+        DiskManager diskManager = new DiskManager(path.toString());
+        assertTrue(diskManager.checkThePath(Paths.get(path.toUri())));
         diskManager.put("ключ1", "значение1");
         diskManager.put("ключ2", "значение2");
         diskManager.put("ключ3", "значение3");
         diskManager.loadToFile();
-        // Проверяем, что данные были успешно записаны в файл
         assertEquals(3, diskManager.size());
         assertEquals("значение1", diskManager.get("ключ1"));
         assertEquals("значение2", diskManager.get("ключ2"));
@@ -41,7 +44,8 @@ public class TestTask1 {
 
     @Test
     public void testPutGet() throws IOException {
-        DiskManager diskManager = new DiskManager("src\\main\\java\\edu\\hw6\\file2.txt");
+        Path path =  Path.of("src", "main", "java", "edu", "hw6", "file2.txt");
+        DiskManager diskManager = new DiskManager(path.toString());
         diskManager.put("ключ1", "значение1");
         diskManager.put("ключ2", "значение2");
         diskManager.put("ключ3", "значение3");
@@ -52,7 +56,8 @@ public class TestTask1 {
 
     @Test
     public void testIncorrectPath() throws IOException {
-        DiskManager diskManager = new DiskManager("src\\main\\java1\\edu\\hw6\\file2.txt");
-        assertFalse(diskManager.checkThePath(Paths.get("src\\main\\java1\\edu\\hw6\\file2.txt")));
+        Path path =  Path.of("src", "main", "java1", "edu", "hw6", "file2.txt");
+        DiskManager diskManager = new DiskManager(path.toString());
+        assertFalse(diskManager.checkThePath(Paths.get(path.toUri())));
     }
 }

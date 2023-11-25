@@ -1,6 +1,7 @@
 package edu.hw6.TestTask2;
 
 import edu.hw6.Task2.CloneFile;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,13 +16,14 @@ public class TestCloneFile {
     private static Path parentPath;
     @BeforeAll
     public static void setUp() {
-        parentPath = Path.of("src\\test\\java\\edu\\hw6\\TestTask2\\test.txt");
+        parentPath = Path.of("src", "test", "java", "edu", "hw6", "TestTask2", "test.txt");
     }
 
-    @AfterEach
-    public void afterEach() {
+    @AfterAll
+    public static void afterAll() {
         List<String> postfixes = List.of("", " (2)");
-        postfixes.forEach(postfix -> parentPath.resolve("src\\test\\java\\edu\\hw6\\TestTask2\\test — копия" + postfix + ".txt").toFile().delete());
+        Path parentPath1 = Path.of("src", "test", "java", "edu", "hw6", "TestTask2", "test — копия");
+        postfixes.forEach(postfix -> parentPath1.resolve(postfix + ".txt").toFile().delete());
     }
     @Test
     public void testCloneFile() throws Exception {
