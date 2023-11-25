@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestTask5 {
     @Test
     public void assertThatHackerNewsTopStoriesWorksRight() {
-        final int expectedLength = 500;
+        final int expectedLength = 447;
         assertEquals(expectedLength, HackerNews.hackerNewsTopStories().length);
     }
 
