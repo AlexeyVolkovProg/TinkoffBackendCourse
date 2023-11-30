@@ -3,12 +3,10 @@ package edu.hw6.TestTask1;
 import edu.hw6.Task1.DiskManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import java.awt.SystemTray;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,7 +15,6 @@ public class TestTask1 {
 
     @AfterEach
     public void afterEach() {
-//        String filePath = "src\\main\\java\\edu\\hw6\\file2.txt";
         Path path = Path.of("src", "main", "java", "edu", "hw6", "file2.txt");
         File file = new File(path.toUri());
         if (file.delete()) {
