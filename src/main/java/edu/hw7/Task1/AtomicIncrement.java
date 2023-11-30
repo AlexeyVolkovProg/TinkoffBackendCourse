@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Напишите тесты: убедитесь, что счетчик потокобезопасен и использует классы Atomic для исключения состояния гонки.
  */
 public class AtomicIncrement {
-    private AtomicIncrement() {
+    public AtomicIncrement() {
 
     }
 
