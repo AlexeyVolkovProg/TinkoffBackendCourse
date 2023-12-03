@@ -30,6 +30,7 @@ public class MyThreadPool implements ThreadPool {
                         }
                     }
                 });
+                threads[i].setDaemon(true);
                 threads[i].start();
             }
         }
