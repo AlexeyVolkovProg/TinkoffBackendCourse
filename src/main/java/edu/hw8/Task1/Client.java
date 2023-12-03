@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-public class Client{
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
+@SuppressWarnings("MagicNumber")
+public class Client {
+    public static Logger logger = (Logger) LogManager.getLogger(Client.class);
     private static final String SERVER_IP = "localhost";
     private static final int SERVER_PORT = 1010;
     private Socket socket;
@@ -17,7 +22,7 @@ public class Client{
             inputStream = socket.getInputStream();
             outputStream = socket.getOutputStream();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
         }
     }
 
@@ -27,7 +32,7 @@ public class Client{
                 socket.close();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
         }
     }
 
@@ -42,7 +47,7 @@ public class Client{
                 return new String(buffer, 0, bytesRead);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
         }
         return "";
     }

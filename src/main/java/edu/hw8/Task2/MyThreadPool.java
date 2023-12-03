@@ -3,8 +3,8 @@ package edu.hw8.Task2;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-
-public class MyThreadPool implements ThreadPool{
+@SuppressWarnings("MagicNumber")
+public class MyThreadPool implements ThreadPool {
     private final BlockingQueue<Runnable> taskQueue;
     private final Thread[] threads;
     private volatile boolean isRunning = false;
