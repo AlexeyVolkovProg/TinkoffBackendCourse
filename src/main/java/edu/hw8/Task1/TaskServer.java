@@ -25,7 +25,7 @@ public class TaskServer extends Thread {
             }
         } catch (IOException e) {
             logger.info(e.getMessage());
-        }finally {
+        } finally {
             executor.shutdown();
         }
     }
