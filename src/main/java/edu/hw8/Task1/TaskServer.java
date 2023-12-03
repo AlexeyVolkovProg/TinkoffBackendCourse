@@ -10,7 +10,7 @@ import static edu.hw8.Task1.Client.logger;
 
 @SuppressWarnings("MagicNumber")
 public class TaskServer extends Thread {
-    private static final int PORT = 1010;
+    private static final int PORT = 64139;
     private static final int MAX_CONNECTIONS = 5;
 
     public void run(CountDownLatch countDownLatch) {
@@ -25,6 +25,8 @@ public class TaskServer extends Thread {
             }
         } catch (IOException e) {
             logger.info(e.getMessage());
+        }finally {
+            executor.shutdown();
         }
     }
 }

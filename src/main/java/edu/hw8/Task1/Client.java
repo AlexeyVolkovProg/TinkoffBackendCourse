@@ -11,7 +11,7 @@ import org.apache.logging.log4j.core.Logger;
 public class Client {
     public static Logger logger = (Logger) LogManager.getLogger(Client.class);
     private static final String SERVER_IP = "localhost";
-    private static final int SERVER_PORT = 1010;
+    private static final int SERVER_PORT = 64139;
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;
