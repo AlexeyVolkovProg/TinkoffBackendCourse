@@ -26,6 +26,7 @@ public class TestClientServer {
         assertEquals("Сервер: Чем ниже интеллект, тем громче оскорбления", client.sendMessage("интеллект"));
         assertEquals("Сервер: Неизвестное ключевое слово: NULL", client.sendMessage("NULL"));
         client.disconnect();
+        taskServer.interrupt();
     }
 
 }
