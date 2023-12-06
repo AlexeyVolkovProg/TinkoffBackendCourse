@@ -3,6 +3,8 @@ package edu.project3;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -33,18 +35,14 @@ public class LogAnalyzerTest {
     @Test
     void pathReadAndAnalyzeLogs() {
         final String path = "logs.txt";
-
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
-
         assertThat(logEntries.isEmpty()).isFalse();
     }
 
     @Test
     void twoPathsReadAndAnalyzeLogs() {
         final String path = "logs.txt,logs1.txt";
-
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
-
         assertThat(logEntries.isEmpty()).isFalse();
     }
 
@@ -54,7 +52,6 @@ public class LogAnalyzerTest {
             "https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_logs/nginx_logs";
 
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
-
         assertThat(logEntries.isEmpty()).isFalse();
     }
 
@@ -63,14 +60,14 @@ public class LogAnalyzerTest {
         final String path = "logs.txt";
 
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
-
         String report = LogAnalyzer.generateReport(logEntries, path, "another");
-
+        System.out.println(report);
         assertThat(logEntries.isEmpty()).isFalse();
 
         assertThat(report.contains("Общая информация")).isTrue();
         assertThat(report.contains("Запрашиваемые ресурсы")).isTrue();
         assertThat(report.contains("Коды ответа")).isTrue();
+        saveReportToFile(report, "common_report.txt");
     }
 
     @Test
@@ -78,14 +75,14 @@ public class LogAnalyzerTest {
         final String path = "logs.txt";
 
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
-
         String report = LogAnalyzer.generateReport(logEntries, path, "markdown");
-
+        System.out.println(report);
         assertThat(logEntries.isEmpty()).isFalse();
 
         assertThat(report.contains("Общая информация")).isTrue();
         assertThat(report.contains("Запрашиваемые ресурсы")).isTrue();
         assertThat(report.contains("Коды ответа")).isTrue();
+        saveReportToFile(report, "common_report.markdown");
     }
 
     @Test
@@ -93,11 +90,21 @@ public class LogAnalyzerTest {
         final String path = "logs.txt";
         List<LogEntry> logEntries = LogAnalyzer.readAndAnalyzeLogs(path, FROM, TO);
         String report = LogAnalyzer.generateReport(logEntries, path, "adoc");
-
+        System.out.println(report);
         assertThat(logEntries.isEmpty()).isFalse();
-
         assertThat(report.contains("== Общая информация")).isTrue();
         assertThat(report.contains("== Запрашиваемые ресурсы")).isTrue();
         assertThat(report.contains("== Коды ответа")).isTrue();
+        saveReportToFile(report, "common_report.adoc");
+
+    }
+
+
+    private void saveReportToFile(String report, String fileName) {
+        try (FileWriter writer = new FileWriter(fileName)) {
+            writer.write(report);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

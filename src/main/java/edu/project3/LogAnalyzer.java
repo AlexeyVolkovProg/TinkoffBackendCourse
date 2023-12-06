@@ -116,7 +116,7 @@ public class LogAnalyzer {
         allForReport.report().append(ADOC_PARAMETERS);
         allForReport.report().append(ADOC_SEPARATOR);
         allForReport.report().append("| Метрика | Значение\n");
-        allForReport.report().append(FILES).append(path).append(" |\n");
+        allForReport.report().append(FILES).append(path);
         allForReport.report().append(START_DATE)
             .append(logEntries.get(0).date.format(DateTimeFormatter.ISO_DATE_TIME)).append("\n");
         allForReport.report().append(FINAL_DATE)
@@ -216,4 +216,5 @@ public class LogAnalyzer {
     private record AllForReport(long totalRequests, double averageResponseSize,
                                 Map<String, Long> resources, Map<Integer, Long> statusCodes, StringBuilder report) {
     }
+
 }
