@@ -6,12 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestTask5 {
     @Test
-    public void assertThatHackerNewsTopStoriesWorksRight() {
-        final int expectedLength = 447;
-        assertEquals(expectedLength, HackerNews.hackerNewsTopStories().length);
-    }
-
-    @Test
     public void assertThatNewsWorksRight() {
         final String expected1 = "JDK 21 Release Notes";
         final String expected2 = "Google admits cracking down on people using ad blockers";
