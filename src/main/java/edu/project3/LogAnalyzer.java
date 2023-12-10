@@ -76,7 +76,6 @@ public class LogAnalyzer {
                 } else {
                     lines = Files.lines(Paths.get(p));
                 }
-
                 List<LogEntry> logEntries = lines.map(LOG_ENTRY_PATTERN::matcher)
                     .filter(Matcher::matches)
                     .map(matcher -> new LogEntry(
